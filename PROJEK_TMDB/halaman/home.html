@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halaman Utama</title>
+    <link rel="stylesheet" href="../style/home.css">
+    <link rel="stylesheet" href="../style/header.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-kumpul">
+        <div class="header-logo">
+          <img src="../../img/logo_tmdb.svg" alt="" class="gambar-logo-header" />
+        </div>
+
+        <nav class="navbar">
+          <ul class="navbar-item-ul">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="popularActor.html">Popular Actors</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="aboutMe.html">About Me</a></li>
+            <li>
+                <select class="navbar-item-select">
+                  <option value="home.html">Movies</option>
+                  <option value="search.html">Search</option>
+                  <option value="popular.html">Popular</option>
+                  <option value="trending.html">Trending</option>
+                  <option value="topRating.html">Top Rating</option>
+                  <option value="gendre.html">Gendres</option>
+                  <option value="upComing.html">UP Coming</option>
+                </select>
+              </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container" style="margin-top: 100px;">
+
+      <div class="container-gambar" style="margin-top: 100px;">
+        <img src="https://image.tmdb.org/t/p/original/zo8CIjJ2nfNOevqNajwMRO6Hwka.jpg" alt="" width="100%" style="height: auto; aspect-ratio: 3/1; object-fit: cover; filter: brightness(1.2); background-position: center;">
+        <h2 class="gambar-text">
+          Cinema is visual melody<br>
+          a sonnet for the spirit<br>
+          and a journey for emotions <br> <br>
+
+          <h1 class="gambar-text-2">Find your favorite film...</h1>
+        </h2>
+        <div class="hitam1">
+
+        </div>
+        <div class="hitam">
+
+        </div>
+        <p class="judul-trending">
+          ✨✨Trending Films✨✨
+        </p>
+        <div class="hitam2">
+
+        </div>
+        <div class="konten-trending">
+
+        </div>
+        <p class="judul-rating">
+          &nbsp;&nbsp;&nbsp;🎉Top Rating Films🎉
+        </p>
+        <div class="konten-rating">
+
+        </div>
+        <div class="hitam3"></div>
+        
+        <p class="judul-most-populer">
+          ♦️Most Popular Films♦️
+        </p>
+        <div class="hitam5"></div>
+        <div class="konten-most-popular">
+          
+        </div>
+        <div class="hitam4"></div>
+
+
+        <footer>
+          <div class="footer-wave"></div>
+          
+          <!-- Floating icons for decoration -->
+          <div class="floating-icon">🎬</div>
+          <div class="floating-icon">🎥</div>
+          <div class="floating-icon">🍿</div>
+          
+          <div class="footer-container">
+              <div class="footer-logo">
+                  <img src="../../img/logo_tmdb.svg" alt="TMDB Logo" class="footer-logo-img">
+                  <p>Gerbang menuju dunia sinema terbaik - di mana setiap frame bercerita dan setiap genre menemukan rumahnya.</p>
+                  <div class="social-icons">
+                      <a href="#"><span>FB</span></a>
+                      <a href="#"><span>TW</span></a>
+                      <a href="#"><span>IG</span></a>
+                      <a href="#"><span>YT</span></a>
+                  </div>
+              </div>
+              
+              <div class="footer-links">
+                  <h3>Menu</h3>
+                  <ul>
+                      <li><a href="../halaman/home.html">Home</a></li>
+                      <li><a href="../halaman/popularActor.html">Popular Actors</a></li>
+                      <li><a href="../halaman/news.html">news</a></li>
+                      <li><a href="../halaman/upComing.html">Up Coming</a></li>
+                      <li><a href="../halaman/aboutMe.html">About Me</a></li>
+                  </ul>
+              </div>
+              
+              <div class="footer-links">
+                  <h3>Informasi</h3>
+                  <ul>
+                      <li><a href="../halaman/search.html">Search Film</a></li>
+                      <li><a href="../halaman/popular.html">Popular Film</a></li>
+                      <li><a href="../halaman/trending.html">Trending Film</a></li>
+                      <li><a href="../halaman/gendre.html">Gendres FIlm</a></li>
+                      <li><a href="../halaman/topRating.html">Top Rating</a></li>
+                  </ul>
+              </div>
+              
+              <div class="footer-komentar">
+                  <h3>Your Comentar</h3>
+                  <form action="">
+                    <textarea id="comment" name="comment" required ></textarea>
+                    <button type="button" id="buttonKomentar">Kirim</button>
+                    <!-- nanti buat alert kalo komentar dikirim -->
+                  </form>
+              </div>
+          </div>
+          
+          <div class="footer-bottom">
+              <p>&copy; 2025 The Movie TMDB. All Rights Reserved. | Developed with ❤️Heart❤️ by Rafa Khadafi</p>
+          </div>
+      </footer>
+
+
+        
+      </div>
+    </div>
+
+    <script src="../script/header.js"></script>
+    <script src="../script/home.js"></script>
+  </body>
+</html>

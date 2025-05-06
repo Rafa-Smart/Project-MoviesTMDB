@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #031c31;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .search-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #01b4e4, #90cea1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 25px;
+            padding-right: 60px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .search-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(1, 180, 228, 0.3);
+            border-color: rgba(1, 180, 228, 0.5);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #01b4e4, #90cea1);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(1, 180, 228, 0.4);
+        }
+
+        .search-button:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 6px 20px rgba(1, 180, 228, 0.6);
+        }
+
+        .search-button i {
+            font-size: 1.2rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .filter-button {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .filter-button:hover, .filter-button.active {
+            background: linear-gradient(135deg, #01b4e4, #90cea1);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 5px 15px rgba(1, 180, 228, 0.3);
+        }
+
+        .results-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .result-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .result-item:hover {
+            background: rgba(1, 180, 228, 0.1);
+            transform: translateX(5px);
+        }
+
+        .result-poster {
+            width: 60px;
+            height: 90px;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-right: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .result-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #01b4e4;
+        }
+
+        .result-info p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 5px;
+        }
+
+        .result-rating {
+            display: flex;
+            align-items: center;
+            color: #ffd700;
+            font-size: 0.9rem;
+        }
+
+        .result-rating i {
+            margin-right: 5px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.6);
+            font-style: italic;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .page-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-button:hover, .page-button.active {
+            background: linear-gradient(135deg, #01b4e4, #90cea1);
+            box-shadow: 0 3px 10px rgba(1, 180, 228, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .search-title {
+                font-size: 2rem;
+            }
+            
+            .search-input {
+                padding: 15px 20px;
+                padding-right: 55px;
+            }
+            
+            .search-button {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .filter-buttons {
+                gap: 10px;
+            }
+            
+            .filter-button {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <h1 class="search-title">Discover Movies & TV Shows</h1>
+        
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search for movies, TV shows, actors...">
+            <button class="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <div class="filter-buttons">
+            <button class="filter-button active">All</button>
+            <button class="filter-button">Movies</button>
+            <button class="filter-button">TV Shows</button>
+            <button class="filter-button">Actors</button>
+            <button class="filter-button">Popular</button>
+        </div>
+        
+        <div class="results-container">
+            <div class="result-item">
+                <img src="https://image.tmdb.org/t/p/w200/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg" alt="Movie Poster" class="result-poster">
+                <div class="result-info">
+                    <h3>The Matrix</h3>
+                    <p>1999 • Action, Sci-Fi • 136 min</p>
+                    <div class="result-rating">
+                        <i class="fas fa-star"></i>
+                        <span>8.7/10</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result-item">
+                <img src="https://image.tmdb.org/t/p/w200/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" alt="Movie Poster" class="result-poster">
+                <div class="result-info">
+                    <h3>John Wick: Chapter 4</h3>
+                    <p>2023 • Action, Thriller • 169 min</p>
+                    <div class="result-rating">
+                        <i class="fas fa-star"></i>
+                        <span>7.9/10</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result-item">
+                <img src="https://image.tmdb.org/t/p/w200/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" alt="Movie Poster" class="result-poster">
+                <div class="result-info">
+                    <h3>The Batman</h3>
+                    <p>2022 • Action, Crime, Drama • 176 min</p>
+                    <div class="result-rating">
+                        <i class="fas fa-star"></i>
+                        <span>7.8/10</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <button class="page-button"><i class="fas fa-chevron-left"></i></button>
+                <button class="page-button active">1</button>
+                <button class="page-button">2</button>
+                <button class="page-button">3</button>
+                <button class="page-button">4</button>
+                <button class="page-button">5</button>
+                <button class="page-button"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

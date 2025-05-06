@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Details | TMDB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        body {
+            background-color: #011323;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            padding: 2% 3%;
+            background-color: #031c31;
+            position: fixed;
+            top: 0;
+            z-index: 99999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-kumpul {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .gambar-logo-header {
+            width: 150px;
+            transition: transform 0.3s ease;
+        }
+
+        .gambar-logo-header:hover {
+            transform: scale(1.05);
+        }
+
+        /* Navigation */
+        .navbar {
+            padding: 1% 2%;
+            margin-left: 7%;
+            width: 50%;
+        }
+
+        .navbar-item-ul {
+            list-style: none;
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            margin-left: 5%;
+            align-items: center;
+        }
+
+        .navbar-item-ul li a {
+            font-weight: 600;
+            font-size: 1em;
+            text-decoration: none;
+            background: linear-gradient(to right, #01b4e4 30%, #01d4ff 40%, #90cea1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding: 5px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-item-ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #01b4e4, #90cea1);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-item-ul li a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-item-select {
+            font-weight: 600;
+            padding: 2% 5%;
+            font-size: 1.1em;
+            border: 2px solid #01b4e4;
+            border-radius: 7px;
+            background: linear-gradient(to right, #01b4e4 30%, #01d4ff 40%, #90cea1 60%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-color: #032541;
+            transition: all 0.3s ease;
+            margin-left: 5%;
+            cursor: pointer;
+        }
+
+        .navbar-item-select:hover {
+            box-shadow: 0 0 15px rgba(1, 180, 228, 0.5);
+        }
+
+        .navbar-item-select option {
+            font-weight: 500;
+            background-color: #032541;
+            color: #0fcdde;
+            padding: 5px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .konten {
+            margin-top: 140px;
+            padding: 0 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            background: rgba(3, 37, 65, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .container-img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            filter: brightness(0.8);
+        }
+
+        .container-judul-film {
+            position: absolute;
+            top: 65%;
+            left: 5%;
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            color: white;
+            font-weight: 800;
+            max-width: 80%;
+            line-height: 1.1;
+        }
+
+        .keterangan-preview {
+            display: flex;
+            position: absolute;
+            top: 80%;
+            left: 5%;
+            color: #e0e0e0;
+            font-size: 1rem;
+            align-items: center;
+        }
+
+        .keterangan-preview p {
+            margin-right: 15px;
+        }
+
+        .hitam {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(transparent, #011323);
+            position: absolute;
+            top: 70%;
+        }
+
+        /* Movie Details Section */
+        .container-bagian-2 {
+            display: flex;
+            gap: 40px;
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .container-img-2 {
+            width: 350px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .container-img-2:hover {
+            transform: scale(1.02);
+        }
+
+        .container-bagian-2-kanan {
+            flex: 1;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            color: #01b4e4;
+            margin-bottom: 25px;
+            font-style: italic;
+            text-align: center;
+            font-weight: 500;
+            text-shadow: 0 0 10px rgba(1, 180, 228, 0.3);
+        }
+
+        .overview {
+            margin-bottom: 20px;
+            color: #01b4e4;
+            font-size: 1.8rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .overview::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #01b4e4, transparent);
+            border-radius: 3px;
+        }
+
+        .ringkasan {
+            line-height: 1.8;
+            margin-bottom: 40px;
+            color: #dddddd;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Production Companies Section - Enhanced */
+        .ringkasan-detail {
+            margin-top: 40px;
+        }
+
+        .ringksan-detail-p {
+            margin-top: 5%;
+            font-weight: 700;
+            color: #01b4e4;
+            font-size: 1.8rem;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .ringksan-detail-p::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, #01b4e4, transparent);
+            border-radius: 3px;
+        }
+
+        .production {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .item-product {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item-product::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(1, 180, 228, 0.1),
+                rgba(144, 206, 161, 0.1),
+                transparent
+            );
+            transform: rotate(30deg);
+            z-index: -1;
+        }
+
+        .item-product:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(1, 180, 228, 0.3);
+        }
+
+        .item-product-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin: 0 auto 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .item-product:hover .item-product-img {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nama-product {
+            font-size: 0.95rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .item-product:hover .nama-product {
+            color: #01b4e4;
+        }
+
+        /* Additional Info Section */
+        .hitam2, .hitam3 {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 40px 0;
+        }
+
+        .bagian-bawah {
+            padding: 0 40px 40px;
+        }
+
+        .bagian-bawah p:first-child {
+            font-size: 1.5rem;
+            color: #01b4e4;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .bagian-bawah-1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .budget, .revenue, .penonton, .status {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #01b4e4;
+            transition: all 0.3s ease;
+        }
+
+        .budget:hover, .revenue:hover, .penonton:hover, .status:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .budget2, .revenue2, .penonton2, .status2 {
+            font-weight: 700;
+            color: #01b4e4;
+            font-size: 1.2rem;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #0a1128 0%, #1a2a4a 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+
+        .footer-wave {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-size: cover;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo-img {
+            width: 210px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .footer-logo p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: bold;
+            color: #01d4ff;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #032541;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #3a86ff;
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3, .footer-komentar h3 {
+            background: linear-gradient(to right, #90cea1, #01b4e4, #3d428b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #3a86ff 0%, #00b4d8 100%);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #3a86ff;
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-50px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-icon {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            font-size: 2rem;
+            animation-delay: 0s;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 30%;
+            right: 8%;
+            font-size: 3rem;
+            animation-delay: 1s;
+        }
+
+        .floating-icon:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            font-size: 1.5rem;
+            animation-delay: 2s;
+        }
+
+        /* Comment Section */
+        #comment {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            font-family: inherit;
+            color: #ffffff;
+            font-size: 14px;
+            resize: vertical;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        #comment:focus {
+            border-color: #01b4e4;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(1, 180, 228, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        #buttonKomentar {
+            display: block;
+            margin-top: 10px;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #01b4e4, #90cea1);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #buttonKomentar:hover {
+            background: linear-gradient(90deg, #0194c4, #80be91);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(1, 180, 228, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container-judul-film {
+                font-size: 2.8rem;
+            }
+            
+            .container-bagian-2 {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .container-img-2 {
+                width: 300px;
+                height: 450px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-kumpul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .navbar {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            
+            .container-judul-film {
+                font-size: 2.2rem;
+                top: 60%;
+            }
+            
+            .keterangan-preview {
+                top: 75%;
+                flex-wrap: wrap;
+            }
+            
+            .production {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-logo {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer-links {
+                text-align: center;
+            }
+            
+            .footer-links h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container-judul-film {
+                font-size: 1.8rem;
+                top: 55%;
+            }
+            
+            .keterangan-preview {
+                top: 70%;
+                font-size: 0.8rem;
+            }
+            
+            .container-img-2 {
+                width: 250px;
+                height: 375px;
+            }
+            
+            .production {
+                grid-template-columns: 1fr;
+            }
+            
+            .bagian-bawah-1 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-kumpul">
+            <div class="header-logo">
+                <img src="../../img/logo_tmdb.svg" alt="TMDB Logo" class="gambar-logo-header" />
+            </div>
+
+            <nav class="navbar">
+                <ul class="navbar-item-ul">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="popularActor.html">Popular Actors</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="aboutMe.html">About Me</a></li>
+                    <li>
+                        <select class="navbar-item-select">
+                            <option value="movie">Detail Film</option>
+                            <option value="search.html">Search</option>
+                            <option value="popular.html">Popular</option>
+                            <option value="trending.html">Trending</option>
+                            <option value="topRating.html">Top Rating</option>
+                            <option value="gendre.html">Gendres</option>
+                            <option value="upComing.html">UP Coming</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="konten">
+        <div class="container">
+            <img src="https://image.tmdb.org/t/p/original/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg" alt="Movie Backdrop" class="container-img">
+            <h1 class="container-judul-film">
+                The Matrix
+            </h1>
+            <div class="keterangan-preview">
+                <p class="tanggal">1999-03-30&nbsp;&nbsp;&nbsp;</p>
+                <p class="gendre"> • &nbsp;&nbsp;&nbsp;Action - Sci-Fi&nbsp;&nbsp;&nbsp;</p>
+                <p class="waktu"> • &nbsp;&nbsp;&nbsp;136 Min</p>
+            </div>
+            <div class="hitam"></div>
+            
+            <div class="container-bagian-2">
+                <img src="https://image.tmdb.org/t/p/original/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg" alt="Movie Poster" class="container-img-2">
+                <div class="container-bagian-2-kanan">
+                    <center><p class="tagline"><i>"Welcome to the Real World"</i></p></center>
+                    <h2 class="overview">Overview :</h2>
+                    <p class="ringkasan">Set in the 22nd century, The Matrix tells the story of a computer hacker who joins a group of underground insurgents fighting the vast and powerful computers who now rule the earth. The Matrix is a 1999 science fiction action film written and directed by the Wachowskis. It is the first installment in The Matrix film series, starring Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving, and Joe Pantoliano.</p>
+                    
+                    <div class="ringkasan-detail">
+                        <p class="ringksan-detail-p">Production Companies :</p>
+                        <div class="production">
+                            <div class="item-product">
+                                <img src="https://image.tmdb.org/t/p/original/5vUJS2DnnD2Zt6j7T6Z2xIRX6V5.png" alt="Warner Bros" class="item-product-img">
+                                <p class="nama-product">
+                                    Warner Bros. Pictures
+                                </p>
+                            </div>
+                            <div class="item-product">
+                                <img src="https://image.tmdb.org/t/p/original/5vUJS2DnnD2Zt6j7T6Z2xIRX6V5.png" alt="Village Roadshow" class="item-product-img">
+                                <p class="nama-product">
+                                    Village Roadshow Pictures
+                                </p>
+                            </div>
+                            <div class="item-product">
+                                <img src="https://image.tmdb.org/t/p/original/5vUJS2DnnD2Zt6j7T6Z2xIRX6V5.png" alt="Groucho II" class="item-product-img">
+                                <p class="nama-product">
+                                    Groucho II Film Partnership
+                                </p>
+                            </div>
+                            <div class="item-product">
+                                <img src="https://via.placeholder.com/100x100.png?text=No+Logo" alt="Silver Pictures" class="item-product-img">
+                                <p class="nama-product">
+                                    Silver Pictures
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hitam2"></div>
+            <div class="hitam3"></div>
+            
+            <div class="bagian-bawah">
+                <p>Additional Information :</p>
+                <div class="bagian-bawah-1">
+                    <p class="budget">Budget : <br><span class="budget2">$63,000,000</span></p>
+                    <p class="revenue"> Revenue : <br><span class="revenue2">$463,517,383</span></p>
+                    <p class="penonton">Views : <br><span class="penonton2">109.485</span></p>
+                    <p class="status"> Status : <br><span class="status2">Released</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-wave"></div>
+
+        <div class="floating-icon">🎬</div>
+        <div class="floating-icon">🎥</div>
+        <div class="floating-icon">🍿</div>
+
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../../img/logo_tmdb.svg" alt="TMDB Logo" class="footer-logo-img" />
+                <p>
+                    Gerbang menuju dunia sinema terbaik - di mana setiap frame bercerita
+                    dan setiap genre menemukan rumahnya.
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="../halaman/home.html">Home</a></li>
+                    <li><a href="../halaman/popularActor.html">Popular Actors</a></li>
+                    <li><a href="../halaman/news.html">News</a></li>
+                    <li><a href="../halaman/upComing.html">Up Coming</a></li>
+                    <li><a href="../halaman/aboutMe.html">About Me</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Informasi</h3>
+                <ul>
+                    <li><a href="../halaman/search.html">Search Film</a></li>
+                    <li><a href="../halaman/popular.html">Popular Film</a></li>
+                    <li><a href="../halaman/trending.html">Trending Film</a></li>
+                    <li><a href="../halaman/gendre.html">Gendres FIlm</a></li>
+                    <li><a href="../halaman/topRating.html">Top Rating</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-komentar">
+                <h3>Your Comment</h3>
+                <form action="">
+                    <textarea id="comment" name="comment" placeholder="Share your thoughts about this movie..." required></textarea>
+                    <button type="button" id="buttonKomentar">Send</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; 2025 The Movie TMDB. All Rights Reserved. | Developed with
+                ❤️Heart❤️ by Rafa Khadafi
+            </p>
+        </div>
+    </footer>
+
+    <script src="../script/header.js"></script>
+</body>
+</html>
