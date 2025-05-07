@@ -35,7 +35,9 @@ function templateStrinTrending(e) {
   return `
   ${e.poster_path ? `
     <div class="card-item-trending">
-            <img src="https://image.tmdb.org/t/p/original${
+            <img 
+            loading="lazy"
+            src="https://image.tmdb.org/t/p/original${
               e.poster_path
             }" alt="Poster Film">
             <div class="preview-film-trending">
@@ -107,7 +109,9 @@ function templateStrinPopular(e) {
   return `
   ${e.backdrop_path ? `
       <div class="card-item-popular">
-            <img src="https://image.tmdb.org/t/p/original${e.backdrop_path}" alt="Poster Film">
+            <img 
+            loading="lazy"
+            src="https://image.tmdb.org/t/p/original${e.backdrop_path}" alt="Poster Film">
             <div class="preview-film-popular">
               <p class="preview-film-popular-judul">
                 ${e.original_title ? e.original_title : "judul tidak tersedia"}
@@ -147,7 +151,9 @@ function templateStrinRating(e) {
   return `
   ${e.poster_path ? `
       <div class="card-item-rating">
-            <img src="https://image.tmdb.org/t/p/original${
+            <img 
+            loading="lazy"
+            src="https://image.tmdb.org/t/p/original${
               e.poster_path
             }" alt="Poster Film">
             <div class="preview-film-rating">
@@ -190,3 +196,5 @@ function konfigurasianjay() {
   };
   return options;
 }
+
+
