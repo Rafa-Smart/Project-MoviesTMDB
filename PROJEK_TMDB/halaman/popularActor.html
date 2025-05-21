@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Halaman Utama</title>
     <link rel="stylesheet" href="../style/header.css" />
+    <link rel="stylesheet" href="../style/popularActor.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
@@ -44,7 +46,28 @@
         </nav>
       </div>
     </header>
-    <div style="margin-top: 100px"></div>
+
+
+    <div class="search-header" style="margin-top: 120px;">
+      <h1 class="search-title">Cinematic Person Search</h1>
+    </div>
+    <div class="search-pembungkusnya">
+      <div class="search-input-container">
+        <!-- ini kita ambil iconnya dari website -->
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" placeholder="Search for actors...">
+        <button type="button" class="search-button">
+          <i class="fas fa-search search-icon-1">&nbsp;&nbsp;Search</i>
+        </button>
+      </div>
+    </div>
+
+
+
+    <div style="margin-top: 100px" class="container-aktor">
+
+
+    </div>
     <footer>
       <div class="footer-wave"></div>
 
@@ -112,6 +135,7 @@
       </div>
     </footer>
 
+    <script src="../script/popularActor.js"></script>
     <script src="../script/header.js"></script>
   </body>
 </html>

@@ -1,14 +1,7 @@
 body {
   background: radial-gradient(circle at top right, #011323, #031c31);
 }
-:root {
-  --primary: #01b4e4;
-  --secondary: #90cea1;
-  --dark: #031c31;
-  --darker: #011323;
-  --light: rgba(255, 255, 255, 0.9);
-  --lighter: rgba(255, 255, 255, 0.6);
-}
+
 
 /* header */
 .search-header {
@@ -18,16 +11,17 @@ body {
 }
 
 .search-title {
-  margin-top: 1%;
+  margin-top: 5vh;
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
   background: linear-gradient(90deg, #01b4e4, #90cea1);
-  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   letter-spacing: -1px;
-  box-shadow: 0 20px 60px -10px rgba(1, 180, 228, 0.3);
+  box-shadow: 0 20px 70px -10px rgba(1, 180, 228, 0.3);
+   box-shadow: 0 20px 60px -10px rgba(1, 180, 228, 0.3), 0 10px 50px 20px rgba(1, 180, 228, 0.3);
+    padding: 1%;
 }
 
 .search-subtitle {
@@ -179,6 +173,7 @@ body {
   border-radius: 28px;
   transition: all 0.7s;
   margin-top: 14%;
+  border: 1px solid rgba(1, 180, 228, 0.5);
 }
 .card-item-search img:hover {
   border-radius: 30px;

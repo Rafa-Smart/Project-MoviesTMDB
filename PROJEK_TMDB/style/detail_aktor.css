@@ -1,0 +1,216 @@
+body {
+  background-color: #0f1a26;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container-actor {
+  width: 70%;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: #0a1e31;
+  border: 1px solid #1b2e3f;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(1, 180, 228, 0.5);
+}
+
+.actor-header {
+  display: flex;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+
+.actor-profile {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+}
+
+.actor-photo {
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 2px solid #01b4e4;
+}
+
+.actor-name {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  background: linear-gradient(to right, #01b4e4, #90cea1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.actor-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 4rem;
+  color: #cccccc;
+  font-size: 1.2rem;
+}
+
+.judul-data {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  background: linear-gradient(to right, #01b4e4, #90cea1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.actor-meta p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #b9f2f4;
+}
+
+.linknya {
+  text-decoration: none;
+  color: #b9f2f4;
+  font-size: 1rem;
+  font-size: 400;
+  transition: 1s;
+}
+
+.linknya:hover {
+  color: #01b4e4;
+}
+
+.bagian-2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #01b4e4;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.bagian-2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #01b4e4, #90cea1);
+}
+
+.garis {
+  border: 1px solid rgba(1, 180, 228, 0.5);
+  margin-bottom: 2%;
+}
+
+.bio {
+  line-height: 1.8;
+  color: #dddddd;
+  font-size: 1.1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 400;
+  width: 90%; /* Lebar 90% dari parent */
+  max-height: calc(1.5em * 8); /* Maksimal 15 baris (1.5em per baris) */
+  line-height: 1.5em; /* Tinggi baris */
+  overflow: hidden; /* Sembunyikan teks berlebih */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word; /* Memastikan kata panjang tetap wrap */
+}
+
+.konten-film-nya {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 2%;
+  box-sizing: border-box;
+}
+
+.card-item-trending {
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+  max-height: fit-content;
+  z-index: 2000;
+}
+
+.card-item-trending img {
+  border-radius: 30px;
+  transition: all 0.7s;
+  border: 1px solid rgba(1, 180, 228, 0.5);
+}
+.card-item-trending img:hover {
+  border-radius: 30px;
+  transform: scale(1.01) translateY(-5px);
+}
+
+.preview-film-trending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  font-weight: 600;
+}
+
+.preview-film-trending-judul {
+  margin: 5% 0;
+  color: #fff;
+}
+
+.detail-trending-film {
+  width: 60%;
+  padding: 3%;
+  font-weight: 600;
+  font-size: 1em;
+  background: linear-gradient(to right, #0b3ba2, #01d4ff, #0b3ba2);
+  /* background: linear-gradient(to right, #042365, #3154ed, #042365); */
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  transition: all 0.3s ease; /* Animasi halus */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.detail-trending-film:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px #0b3ba2;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .actor-profile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actor-photo {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-actor {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .actor-name {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .actor-meta {
+    font-size: 1rem;
+  }
+}

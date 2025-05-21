@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // Ambil ID dari localStorage
-    const id = localStorage.getItem('DataId');
+    const id3 = localStorage.getItem('DataIdDetail');
     
     // Bersihkan localStorage setelah digunakan
-    // localStorage.removeItem('DataId');
+    // localStorage.removeItem('DataIdDetail');
     
-    if (id) {
-        const data = await ambildataDariId(id)
+    if (id3) {
+        const data = await ambildataDariId(id3)
         console.log(data)
-        console.log(id)
+        console.log(id3)
+        console.log("ini kok datanya double")
         displayDetail(data)
         tesLimitDiv()
     } else {

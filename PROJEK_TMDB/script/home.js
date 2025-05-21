@@ -1,5 +1,9 @@
 
 
+
+
+
+
 document.addEventListener("DOMContentLoaded", async function () {
   const divKontenTrending = document.querySelector(".konten-trending");
   const divkontenPopular = document.querySelector(".konten-most-popular");
@@ -12,6 +16,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   displayKontenPopular(divkontenPopular, resultPopular);
 });
 
+
+
+
+
 // ini buat tombol detail
 document.addEventListener("click", async function (e) {
   if ((e.target.textContent.includes("More Detail"))) {
@@ -23,6 +31,11 @@ document.addEventListener("click", async function (e) {
   }
 });
 
+
+
+
+
+
 function displayKontenTrending(divKonten, data) {
   let hasil = "";
   data.forEach((e) => {
@@ -30,6 +43,9 @@ function displayKontenTrending(divKonten, data) {
   });
   divKonten.innerHTML = hasil;
 }
+
+
+
 
 function templateStrinTrending(e) {
   return `
@@ -59,6 +75,10 @@ function templateStrinTrending(e) {
     `;
 }
 
+
+
+
+
 function ambilDataTrending() {
   const url = `https://api.themoviedb.org/3/trending/all/day?language=en-US`;
   const init = konfigurasianjay();
@@ -78,6 +98,10 @@ function ambilDataTrending() {
 }
 
 
+
+
+
+
 function displayKontenPopular(divKonten, data) {
   let hasil = "";
   data.forEach((e) => {
@@ -85,6 +109,10 @@ function displayKontenPopular(divKonten, data) {
   });
   divKonten.innerHTML = hasil;
 }
+
+
+
+
 
 function ambilDataPopular(){
   const url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1`
@@ -103,6 +131,10 @@ function ambilDataPopular(){
     console.log(`error mengambil datanyah : ${err.message}`);
   })
 }
+
+
+
+
 
 
 function templateStrinPopular(e) {
@@ -125,8 +157,16 @@ function templateStrinPopular(e) {
             </div>
           </div>
   ` : ""}
+
+
+
   `
 }
+
+
+
+
+
 
 function ambilDataRating(){
   const url = `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1`
@@ -146,6 +186,9 @@ function ambilDataRating(){
   })
 
 }
+
+
+
 
 function templateStrinRating(e) {
   return `
@@ -175,6 +218,10 @@ function templateStrinRating(e) {
     `;
 }
 
+
+
+
+
 function displayKontenRating(divKonten, data) {
   let hasil = "";
   data.forEach((e) => {
@@ -182,6 +229,9 @@ function displayKontenRating(divKonten, data) {
   });
   divKonten.innerHTML = hasil;
 }
+
+
+
 
 function konfigurasianjay() {
   const accessToken =

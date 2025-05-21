@@ -1,0 +1,256 @@
+
+
+
+.container-aktor {
+    max-width: 75%;
+    margin: 0% auto;
+    margin-bottom: 5%;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 180px);
+    grid-gap: 20px;
+    padding: 5%;
+    overflow-y: auto;
+    justify-content: space-around;
+    background-color: #0a1e31;
+    box-shadow: 0 30px 60px -10px rgba(1, 180, 228, 0.3);
+    border: 1px solid rgba(1, 180, 228, 0.5);
+}
+
+
+.container-aktor::-webkit-scrollbar {
+  height: 10px; 
+}
+
+.container-aktor::-webkit-scrollbar-track {
+  background: #032541; 
+  border-radius: 10px;
+}
+
+.container-aktor::-webkit-scrollbar-thumb {
+  width: 40px;
+  background: #888;
+  border-radius: 10px;
+  border: 1px solid #0523cf;
+}
+
+
+.card-item {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    max-height: fit-content;
+    z-index: 2000;
+  }
+  
+  .card-item img {
+    border-radius: 30px;
+    transition: all .7s;
+    border: 1px solid rgba(1, 180, 228, 0.5);
+  }
+  .card-item img:hover {
+    border-radius: 30px;
+    transform: scale(1.1) translateY(-12px);
+  }
+  
+  .preview-aktor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    font-weight: 600;
+  }
+  
+  .preview-judul {
+    margin: 3% 0;
+    color: #fff;
+  }
+  .preview-rilis {
+    margin: 0 0 5% 0;
+    color: #fff;
+  }
+  .preview {
+      margin: 0 0 5% 0;
+      color: #fff;
+  }
+  
+  .detail-film {
+    width: 80%;
+    padding: 3%;
+    font-weight: 600;
+    font-size: 1.1em;
+    background: linear-gradient(to right, #0b3ba2, #01d4ff, #0b3ba2);
+    /* background: linear-gradient(to right, #042365, #3154ed, #042365); */
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s ease; /* Animasi halus */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .detail-film:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px #0b3ba2;
+  }
+  
+
+
+/* buat searchnya */
+
+/* header */
+.search-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .search-title {
+    margin-top: 1%;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, #01b4e4, #90cea1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -1px;
+    box-shadow: 0 20px 60px -10px rgba(1, 180, 228, 0.3);
+  }
+
+  
+  /* inputan */
+  
+  /* ini agar elemen ini bis di klik */
+  .search-icon-1 {
+    pointer-events: auto; /* Memastikan elemen <i> bisa menerima klik */
+  }
+  
+  .search-pembungkusnya {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .search-pembungkusnya:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px -10px rgba(1, 180, 228, 0.3);
+    border-color: rgba(1, 180, 228, 0.3);
+  }
+  .search-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 25px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 1.5rem 1.5rem 1.5rem 4rem;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 25px rgba(1, 180, 228, 0.2);
+  }
+  
+  .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  /* button inputan */
+  .search-button {
+    position: absolute;
+    right: 0%;
+    background: linear-gradient(90deg, #01b4e4, #90cea1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 1.5rem 2rem;
+    border-radius: 0px 20px 20px 0px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+
+  /* buat pagenya */
+
+.page {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(10, minmax(50px, 1fr));
+  gap: 15px;
+  background: linear-gradient(155deg, #010c4a 0%, #01466e 100%);
+  width: fit-content;
+  max-width: 100vw;
+  margin: 0 60%;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 180, 216, 0.4),
+              inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 102, 255, 0.7);
+  position: relative;
+  top: 40%;
+}
+
+.button-page {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgb(110, 185, 235);
+  border-radius: 8px;
+  width: 100%;
+  min-width: 40px;
+  aspect-ratio: 1;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0px 5px rgba(0, 180, 216, 0.4);
+  transition: 2;
+}
+
+.button-page:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.10);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.aktif {
+  background: #0c88e8;
+  color: #ffffff;
+  transform: scale(0.95);
+}
+
+
+/* 
+    box-shadow: 0 5px 20px rgba(0, 180, 216, 0.4),
+              inset 0 1px 1px rgba(255, 255, 255, 0.2);
+               box-shadow: 0 0 0 2px rgba(21, 147, 250, 0.5);
+                 background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+  
+  */
