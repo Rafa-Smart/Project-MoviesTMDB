@@ -26,11 +26,11 @@ async function searchFilm() {
   const divKonten = document.createElement("div");
   divKonten.className = "container-search";
 
-  // Dapatkan elemen parent dari footer (body)
-  const parent = footer.parentNode;
+  // lemen parent dari footer (body)
+  // ini nanti bsia aja langsung si bodynya
+  const bapak = footer.parentNode;
 
-  // Sisipkan elemen baru sebelum footer
-  parent.insertBefore(divKonten, footer);
+  bapak.insertBefore(divKonten, footer);
   const dataPencarian = document.querySelector(".search-input").value;
   const { results } = await ambilDataSearch(dataPencarian);
   displayKontenSearch(divKonten, results);

@@ -105,17 +105,6 @@ body {
   cursor: pointer;
 }
 
-.judul-rating {
-  background: linear-gradient(to right, #90cea1, #01b4e4, #3d428b);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 600;
-  font-size: 2.5em;
-  /* margin: 4% 5% 0 3%; */
-  margin: 5% 30%;
-  width: 80%;
-}
 
 /* konten-trending */
 .container-search {

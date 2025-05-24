@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Halaman Utama</title>
     <link rel="stylesheet" href="../style/header.css" />
+    <link rel="stylesheet" href="../style/gendre.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
@@ -31,7 +33,7 @@
             <li><a href="aboutMe.html">About Me</a></li>
             <li>
               <select class="navbar-item-select">
-                <option value="movie">Gendres</option>
+                <option value="movie">Search</option>
                 <option value="search.html">Search</option>
                 <option value="popular.html">Popular</option>
                 <option value="trending.html">Trending</option>
@@ -44,11 +46,47 @@
         </nav>
       </div>
     </header>
-    <div style="margin-top: 100px"></div>
+
+    <div class="genre-header" style="margin-top: 120px;">
+      <h1 class="genre-title">Choose Your Favorite Genre</h1>
+      <p class="genre-subtitle">Filter your favorite films by genre</p>
+    </div>
+
+     <div class="genre-container">
+      <div class="genre-dropdown-container">
+        <label for="genre-pilih" class="genre-label">Select a Genre:</label>
+        <select id="genre-pilih" class="genre-pilih">
+          <option class="buat-option" value="">-- Choose a Genre --</option>
+          <option class="buat-option" value="28">Action</option>
+          <option class="buat-option" value="12">Adventure</option>
+          <option class="buat-option" value="16">Animation</option>
+          <option class="buat-option" value="35">Comedy</option>
+          <option class="buat-option" value="80">Crime</option>
+          <option class="buat-option" value="99">Documentary</option>
+          <option class="buat-option" value="18">Drama</option>
+          <option class="buat-option" value="10751">Family</option>
+          <option class="buat-option" value="14">Fantasy</option>
+          <option class="buat-option" value="36">History</option>
+          <option class="buat-option" value="27">Horror</option>
+          <option class="buat-option" value="10402">Music</option>
+          <option class="buat-option" value="9648">Mystery</option>
+          <option class="buat-option" value="10749">Romance</option>
+          <option class="buat-option" value="878">Science Fiction</option>
+          <option class="buat-option" value="10770">TV Movie</option>
+          <option class="buat-option" value="53">Thriller</option>
+          <option class="buat-option" value="10752">War</option>
+          <option class="buat-option" value="37">Western</option>
+        </select>
+        <button class="genre-button" type="button">
+          <i class="fas fa-play genre-icon"></i> Explore
+        </button>
+      </div>
+    </div>
+
+    
+
     <footer>
       <div class="footer-wave"></div>
-
-      <!-- Floating icons for decoration -->
       <div class="floating-icon">🎬</div>
       <div class="floating-icon">🎥</div>
       <div class="floating-icon">🍿</div>
@@ -113,5 +151,6 @@
     </footer>
 
     <script src="../script/header.js"></script>
+    <script src="../script/gendre.js"></script>
   </body>
 </html>

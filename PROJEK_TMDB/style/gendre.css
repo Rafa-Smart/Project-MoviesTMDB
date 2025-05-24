@@ -1,0 +1,240 @@
+body {
+  background: radial-gradient(circle at top right, #011323, #031c31);
+}
+
+
+.genre-title {
+  margin-top: 5vh;
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #01b4e4, #90cea1);
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -1px;
+  box-shadow: 0 20px 70px -10px rgba(1, 180, 228, 0.3);
+  box-shadow: 0 20px 60px -10px rgba(1, 180, 228, 0.3), 0 10px 50px 20px rgba(1, 180, 228, 0.3);
+  padding: 1%;
+}
+
+.genre-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+/* genre container */
+.genre-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.genre-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px -10px rgba(1, 180, 228, 0.3);
+  border-color: rgba(1, 180, 228, 0.3);
+}
+
+.genre-dropdown-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.genre-label {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.genre-pilih {
+  width: 100%;
+  font-weight: bold;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 15px;
+  color: rgba(37, 37, 143, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  appearance: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center;
+  background-size: 1.5rem;
+}
+
+
+/* buat si optionnya */
+.buat-option {
+  font-family: "Montserrat";
+  font-weight: 500;
+  background-color: #032541;
+  color: #0fcdde;
+  padding: 5px;
+  text-align: center;
+}
+
+.genre-pilih:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(1, 180, 228, 0.2);
+}
+
+.genre-button {
+  background: linear-gradient(90deg, #01b4e4, #90cea1);
+  color: white;
+  padding: 1.2rem 2rem;
+  border-radius: 15px;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.genre-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(1, 180, 228, 0.4);
+}
+
+.genre-icon {
+  font-size: 1rem;
+}
+
+
+
+
+
+
+/* konten-trending */
+.container-gendre {
+  display: grid;
+  grid-template-columns: repeat(3, 23%);
+  background-color: #0a1e31;
+  box-shadow: 0 30px 60px -10px rgba(1, 180, 228, 0.3);
+  border: 1px solid rgba(1, 180, 228, 0.5);
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5% 0;
+  width: 80%;
+  height: fit-content;
+  margin: 5% auto;
+  border-radius: 3%;
+  padding-bottom: 205;
+}
+
+/* Container dengan scroll horizontal */
+.container-gendre {
+  overflow-x: auto; /* Aktifkan scroll horizontal */
+  white-space: nowrap; /* Hindari wrap konten */
+  padding-bottom: 20px; /* Ruang untuk scrollbar */
+}
+
+/* Style scrollbar horizontal */
+.container-gendre::-webkit-scrollbar {
+  height: 10px; /* Tinggi scrollbar horizontal */
+}
+
+.container-gendre::-webkit-scrollbar-track {
+  background: #032541;
+  border-radius: 10px;
+}
+
+.container-gendre::-webkit-scrollbar-thumb {
+  width: 40px;
+  background: #888;
+  border-radius: 10px;
+  border: 1px solid #0523cf;
+}
+
+/* card */
+
+.card-item-gendre {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  max-height: fit-content;
+  z-index: 2000;
+}
+
+.card-item-gendre img {
+  border-radius: 28px;
+  transition: all 0.7s;
+  margin-top: 14%;
+  border: 1px solid rgba(1, 180, 228, 0.5);
+}
+.card-item-gendre img:hover {
+  border-radius: 30px;
+  transform: scale(1.1) translateY(-12px);
+  box-shadow: 0 3px 10px #05122e;
+}
+
+.preview-film-gendre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  font-weight: 600;
+}
+
+.preview-film-gendre-judul {
+  margin: 3% 0;
+  font-size: 1em;
+  color: #fff;
+}
+.preview-film-gendre-rilis {
+  margin: 0 0 5% 0;
+  font-size: 1em;
+  color: #fff;
+}
+.preview-film-gendre-gendre {
+  margin: 0 0 5% 0;
+  font-size: 1em;
+  color: #fff;
+}
+
+.detail-gendre-film {
+  width: 78%;
+  padding: 2% 3%;
+  font-weight: 600;
+  font-size: 1.1em;
+  background: linear-gradient(to right, #0b3ba2, #01d4ff, #0b3ba2);
+  /* background: linear-gradient(to right, #042365, #3154ed, #042365); */
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  transition: all 0.3s ease; /* Animasi halus */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px #05122e;
+}
+
+.detail-gendre-film:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px #0b3ba2;
+}
+
+footer {
+  margin-top: 60px;
+}
