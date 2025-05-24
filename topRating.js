@@ -5,7 +5,7 @@ document.addEventListener("click", function (e){
     const dataId = e.target.dataset.id;
     localStorage.setItem("DataId", dataId);
     if(e.target.value != "/index.html"){
-      window.location.href = "detail.html";
+      window.location.href = "https://rafa-smart.github.io/Tmdb_FIlm.github.io/detail.html";
     }
   }
 })

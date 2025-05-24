@@ -10,7 +10,7 @@ document.addEventListener("click", function (e) {
     console.log(data_id);
     localStorage.setItem("DataId2", data_id);
     if (e.target.value != "/index.html") {
-      window.location.href = "detail_aktor.html";
+      window.location.href = "https://rafa-smart.github.io/Tmdb_FIlm.github.io/detail_aktor.html";
     }
   }
 });
