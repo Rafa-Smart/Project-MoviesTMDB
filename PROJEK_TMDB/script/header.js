@@ -3,7 +3,8 @@ document.querySelector(".navbar-item-select").addEventListener('change', functio
     //   window.location.href = this.value;
     // }
     if(e.target.value){
-      window.location.href = e.target.value;
+      let url = `https://rafa-smart.github.io/Tmdb_FIlm.github.io/PROJEK_TMDB/halaman/${e.target.value}`
+      window.location.href = url;
     }
   });
 
