@@ -174,3 +174,62 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
 }
+
+@media screen and (max-width: 768px) {
+      .header-kumpul {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+.container-img {
+    display: none;
+  }
+
+  .container-judul-film {
+    top: 140px;
+    left: 15px;
+    font-size: 1.3rem;
+  }
+
+  .keterangan-preview {
+    top: 180px;
+    left: 15px;
+    font-size: 1rem;
+  }
+
+  .container-bagian-2 {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .container-img-2 {
+    width: 100%;
+    height: auto;
+  }
+
+  .container-bagian-2-kanan {
+    width: 100%;
+    padding: 0 10px;
+    text-align: justify;
+  }
+
+  .bagian-bawah-1 {
+    grid-template-columns: 1fr;
+  }
+
+  .bagian-bawah-1 img {
+    width: 100%;
+  }
+
+  .ringkasan {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .production {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+}

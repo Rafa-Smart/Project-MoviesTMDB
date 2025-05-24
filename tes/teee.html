@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halaman Utama</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat";
+      }
+
+      body {
+        background-color: #0f283c;
+        background-color: #031c31;
+        background-color: #041728;
+        background-color: #011323;
+        overflow-x: hidden;
+      }
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 2% 3%;
+        background-color: #032541;
+        background-color: #031c31;
+        position: fixed;
+        top: 0;
+        z-index: 99999;
+      }
+
+      .header-kumpul {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .gambar-logo-header {
+        width: 150%;
+      }
+
+      /* navbar */
+
+      a {
+        text-decoration: none;
+      }
+
+      .navbar {
+        /* Hapus properti gradient dari sini */
+        padding: 1% 2%;
+        margin-left: 7%;
+        width: 50%;
+      }
+
+      .navbar-item-ul {
+        list-style: none;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        margin-left: 5%;
+        align-items: center;
+      }
+
+      .navbar-item-ul li a {
+        font-family: "Montserrat";
+        font-weight: 600;
+        font-size: 1em;
+        text-decoration: none;
+        background: linear-gradient(
+          to right,
+          #01b4e4 30%,
+          #01d4ff 40%,
+          #90cea1
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+
+        padding: 5px 0;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      /* animasi pas di hover */
+      .navbar-item-ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #01b4e4, #90cea1);
+        transition: width 0.3s ease;
+      }
+
+      .navbar-item-ul li a:hover::after {
+        width: 100%;
+      }
+
+      .navbar-item-select {
+        font-family: "Montserrat";
+        font-weight: 600;
+        padding: 2% 5%;
+        font-size: 1.1em;
+        border: 2px solid #01b4e4;
+        border-radius: 7px;
+        background: linear-gradient(
+          to right,
+          #01b4e4 30%,
+          #01d4ff 40%,
+          #90cea1 60%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-color: #032541;
+        transition: all 0.3s ease;
+        margin-left: 5%;
+      }
+
+      .navbar-item-select option {
+        font-family: "Montserrat";
+        font-weight: 500;
+        background-color: #032541;
+        color: #0fcdde;
+        padding: 5px;
+        text-align: center;
+      }
+
+      /* footernyaaa */
+
+      footer {
+        background: linear-gradient(135deg, #0a1128 0%, #1a2a4a 100%);
+        color: white;
+        padding: 4rem 0 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer-wave {
+        position: absolute;
+        top: -50px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-size: cover;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-logo-img {
+        width: 210px;
+        margin-bottom: 1rem;
+      }
+
+      .footer-logo p {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        opacity: 0.8;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: bold;
+        color: #01d4ff;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        background-color: #032541;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        background-color: #3a86ff;
+        transform: translateY(-3px);
+      }
+
+      .footer-links h3 {
+        background: linear-gradient(to right, #90cea1, #01b4e4, #3d428b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+      .footer-komentar h3 {
+        background: linear-gradient(to right, #90cea1, #01b4e4, #3d428b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 13%;
+      }
+
+      .footer-links h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(90deg, #3a86ff 0%, #00b4d8 100%);
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: #3a86ff;
+        transform: translateX(5px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 3rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-bottom p {
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+
+      /* animasi geraknya */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-50px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating-icon {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-icon:nth-child(1) {
+        top: 10%;
+        left: 5%;
+        font-size: 2rem;
+        animation-delay: 0s;
+      }
+
+      .floating-icon:nth-child(2) {
+        top: 30%;
+        right: 8%;
+        font-size: 3rem;
+        animation-delay: 1s;
+      }
+
+      .floating-icon:nth-child(3) {
+        bottom: 20%;
+        left: 15%;
+        font-size: 1.5rem;
+        animation-delay: 2s;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .footer-container {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-logo {
+          align-items: center;
+          text-align: center;
+        }
+
+        .social-icons {
+          justify-content: center;
+        }
+
+        .footer-links {
+          text-align: center;
+        }
+
+        .footer-links h3::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      /* buat komentar */
+      /* CSS untuk textarea komentar */
+      #comment {
+        width: 100%;
+        min-height: 120px; /* Memberikan tinggi minimum */
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-family: inherit;
+        color: #032541;
+        font-size: 14px;
+        resize: vertical; /* Memungkinkan resize vertikal saja */
+        box-sizing: border-box; /* Memastikan padding tidak mempengaruhi lebar */
+        transition: border 0.3s ease;
+      }
+
+      #comment:focus {
+        border-color: #4285f4;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+      }
+
+      /* CSS untuk tombol Kirim */
+      #buttonKomentar {
+        display: block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #4285f4;
+        color: white;
+        border: none;
+        font-family: arial;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+
+      #buttonKomentar:hover {
+        background-color: #3367d6;
+      }
+
+      /* Burger Button */
+      .burger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        width: 30px;
+        height: 25px;
+        justify-content: space-between;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        z-index: 100000;
+      }
+
+      .burger span {
+        height: 4px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      /* Burger active (animasi jadi X) */
+      .burger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .burger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .burger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Responsive navbar */
+      @media (max-width: 768px) {
+        .navbar {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: #032541;
+          width: 100%;
+          padding: 1rem 0;
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          z-index: 9999;
+        }
+
+        .navbar.active {
+          display: flex;
+        }
+
+        .navbar-item-ul {
+          flex-direction: column;
+          gap: 1rem;
+          margin-left: 0;
+        }
+
+        .navbar-item-select {
+          margin-left: 0;
+        }
+
+        .burger {
+          display: flex;
+        }
+
+        .header-kumpul {
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+
+      .gambar-text {
+        position: absolute;
+        top: 160px;
+        left: 70px;
+        color: #fff;
+        font-family: "Playfair Display", serif; /* Font elegan */
+        font-size: 2.5rem;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        opacity: 0.9;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+        z-index: 2000;
+      }
+
+      .gambar-text-2 {
+        position: absolute;
+        top: 380px;
+        left: 70px;
+        color: #fff;
+        font-family: "Playfair Display", serif; /* Font elegan */
+        font-size: 2.7rem;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        opacity: 0.9;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+        z-index: 2000;
+      }
+
+      .judul-trending {
+        background: linear-gradient(to right, #90cea1, #01b4e4, #3d428b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 600;
+        font-size: 2.5em;
+        /* margin: 4% 5% 0 3%; */
+        margin: 5% 30%;
+        width: 80%;
+      }
+
+      /* konten-trending */
+      .konten-trending {
+        display: flex;
+        flex-direction: row;
+        column-gap: 2%;
+        padding: 3%;
+        overflow-y: hidden;
+        background-image: image-set(
+            url("https://image.tmdb.org/t/p/original/kGzFbGhp99zva6oZODW5atUtnqi.jpg")
+          ),
+          linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://image.tmdb.org/t/p/original/kGzFbGhp99zva6oZODW5atUtnqi.jpg");
+        background-size: contain;
+        aspect-ratio: 3/1;
+        z-index: 2000;
+      }
+
+      /* Container dengan scroll horizontal */
+      .konten-trending {
+        overflow-x: auto; /* Aktifkan scroll horizontal */
+        white-space: nowrap; /* Hindari wrap konten */
+        padding-bottom: 20px; /* Ruang untuk scrollbar */
+      }
+
+      /* Style scrollbar horizontal */
+      .konten-trending::-webkit-scrollbar {
+        height: 10px; /* Tinggi scrollbar horizontal */
+      }
+
+      .konten-trending::-webkit-scrollbar-track {
+        background: #032541;
+        border-radius: 10px;
+      }
+
+      .konten-trending::-webkit-scrollbar-thumb {
+        width: 40px;
+        background: #888;
+        border-radius: 10px;
+        border: 1px solid #0523cf;
+      }
+
+      /* card */
+
+      .card-item-trending {
+        display: flex;
+        flex-direction: column;
+        max-width: 15%;
+        max-height: fit-content;
+        z-index: 2000;
+      }
+
+      .card-item-trending img {
+        border-radius: 30px;
+        transition: all 0.7s;
+        border: 1px solid rgba(1, 180, 228, 0.5);
+      }
+      .card-item-trending img:hover {
+        border-radius: 30px;
+        transform: scale(1.1) translateY(-12px);
+      }
+
+      .preview-film-trending {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        font-weight: 600;
+      }
+
+      .preview-film-trending-judul {
+        margin: 3% 0;
+        color: #fff;
+      }
+      .preview-film-trending-rilis {
+        margin: 0 0 5% 0;
+        color: #fff;
+      }
+      .preview-film-trending-rating {
+        margin: 0 0 5% 0;
+        color: #fff;
+      }
+
+      .detail-trending-film {
+        width: 80%;
+        padding: 3%;
+        font-weight: 600;
+        font-size: 1.1em;
+        background: linear-gradient(to right, #0b3ba2, #01d4ff, #0b3ba2);
+        /* background: linear-gradient(to right, #042365, #3154ed, #042365); */
+        color: #fff;
+        outline: none;
+        border: none;
+        border-radius: 30px;
+        transition: all 0.3s ease; /* Animasi halus */
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .detail-trending-film:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px #0b3ba2;
+      }
+
+      /* rating */
+      .judul-rating {
+        background: linear-gradient(to right, #90cea1, #01b4e4, #3d428b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 600;
+        font-size: 2.5em;
+        /* margin: 4% 5% 0 3%; */
+        margin: 5% 30%;
+        width: 80%;
+      }
+
+      .konten-rating {
+        display: flex;
+        flex-direction: row;
+        column-gap: 2%;
+        padding: 3%;
+        overflow-y: hidden;
+        background-image: image-set(
+            url("https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg")
+          ),
+          linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://image.tmdb.org/t/p/original/rthMuZfFv4fqEU4JVbgSW9wQ8rs.jpg");
+
+        background-size: contain;
+        aspect-ratio: 3/1;
+        z-index: 2000;
+      }
+
+      /* Container dengan scroll horizontal */
+      .konten-rating {
+        overflow-x: auto; /* Aktifkan scroll horizontal */
+        white-space: nowrap; /* Hindari wrap konten */
+        padding-bottom: 20px; /* Ruang untuk scrollbar */
+      }
+
+      /* Style scrollbar horizontal */
+      .konten-rating::-webkit-scrollbar {
+        height: 10px; /* Tinggi scrollbar horizontal */
+      }
+
+      .konten-rating::-webkit-scrollbar-track {
+        background: #032541;
+        border-radius: 10px;
+      }
+
+      .konten-rating::-webkit-scrollbar-thumb {
+        width: 40px;
+        background: #888;
+        border-radius: 10px;
+        border: 1px solid #0523cf;
+      }
+
+      /* card */
+
+      .card-item-rating {
+        display: flex;
+        flex-direction: column;
+        max-width: 15%;
+        max-height: fit-content;
+        z-index: 2000;
+      }
+
+      .card-item-rating img {
+        border-radius: 30px;
+        transition: all 0.7s;
+        border: 1px solid rgba(1, 180, 228, 0.5);
+      }
+      .card-item-rating img:hover {
+        border-radius: 30px;
+        transform: scale(1.1) translateY(-12px);
+      }
+
+      .preview-film-rating {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        font-weight: 600;
+      }
+
+      .preview-film-rating-judul {
+        margin: 3% 0;
+        color: #fff;
+      }
+      .preview-film-rating-rilis {
+        margin: 0 0 5% 0;
+        color: #fff;
+      }
+      .preview-film-rating-rating {
+        margin: 0 0 5% 0;
+        color: #fff;
+      }
+
+      .detail-rating-film {
+        width: 80%;
+        padding: 3%;
+        font-weight: 600;
+        font-size: 1.1em;
+        background: linear-gradient(to right, #0b3ba2, #01d4ff, #0b3ba2);
+        /* background: linear-gradient(to right, #042365, #3154ed, #042365); */
+        color: #fff;
+        outline: none;
+        border: none;
+        border-radius: 30px;
+        transition: all 0.3s ease; /* Animasi halus */
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .detail-rating-film:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px #0b3ba2;
+      }
+
+      .judul-most-populer {
+        background: linear-gradient(to right, #90cea1, #01b4e4, #3d428b);
+        /* background: linear-gradient(to right, #7c0000, #6f270a,  #d35c25); */
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 600;
+        font-size: 2.5em;
+        /* margin: 4% 5% 0 3%; */
+        margin: 5% 30%;
+        width: 80%;
+      }
+
+      .konten-most-popular {
+        display: flex;
+        flex-direction: row;
+        column-gap: 2%;
+        padding-top: 3%;
+        padding-left: 3%;
+        padding-right: 3%;
+        overflow-y: hidden;
+        background-image: image-set(
+          url("https://image.tmdb.org/t/p/original/4eC0tsU9OxR3Adlo1yRJYUDraW9.jpg")
+        );
+        background-image: image-set(
+            url("https://image.tmdb.org/t/p/original/uU1Mt4JWhDvl4vKb3AfxNsorkoM.jpg")
+          ),
+          linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://image.tmdb.org/t/p/original/uU1Mt4JWhDvl4vKb3AfxNsorkoM.jpg");
+        background-size: contain;
+        aspect-ratio: 4/1.1;
+        height: 56vh;
+        background-repeat: none;
+        width: fit-content;
+      }
+
+      .card-item-popular {
+        display: flex;
+        flex-direction: column;
+        max-width: 28%;
+        max-height: 35%;
+        z-index: 2000;
+      }
+
+      .card-item-popular img {
+        border-radius: 30px;
+        transition: all 0.7s;
+        border: 1px solid rgba(1, 180, 228, 0.5);
+      }
+      .card-item-popular img:hover {
+        border-radius: 30px;
+        transform: scale(1.1) translateY(-12px);
+      }
+
+      .preview-film-popular {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+      }
+
+      .preview-film-popular-judul {
+        font-weight: bold;
+        font-size: 1.4em;
+        margin: 2% 0;
+        color: #fff;
+      }
+
+      .preview-film-popular-rilis {
+        margin: 0 0 1% 0;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      .detail-popular-film {
+        width: 40%;
+        padding: 2% 4%;
+        font-weight: 600;
+        font-size: 1.1em;
+        background: linear-gradient(to right, #0b3ba2, #01d4ff, #0b3ba2);
+        color: #fff;
+        outline: none;
+        border: none;
+        border-radius: 30px;
+        box-shadow: 0 4px 15px rgba(0, 36, 255, 0.3);
+        transition: all 0.3s ease;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        margin-bottom: 3%;
+      }
+
+      .detail-popular-film:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+      }
+
+      /* Container dengan scroll horizontal */
+      .konten-most-popular {
+        overflow-x: auto; /* Aktifkan scroll horizontal */
+        white-space: nowrap; /* Hindari wrap konten */
+        padding-bottom: 20px; /* Ruang untuk scrollbar */
+      }
+
+      /* Style scrollbar horizontal */
+      .konten-most-popular::-webkit-scrollbar {
+        height: 10px; /* Tinggi scrollbar horizontal */
+      }
+
+      .konten-most-popular::-webkit-scrollbar-track {
+        background-color: rgb(2, 1, 21);
+        border-radius: 10px;
+      }
+
+      .konten-most-popular::-webkit-scrollbar-thumb {
+        width: 40px;
+        background: #888;
+        border-radius: 10px;
+        border: 1px solid #0523cf;
+      }
+
+      /* footernyaaa */
+      footer {
+        background: linear-gradient(135deg, #0a1128 0%, #1a2a4a 100%);
+        color: white;
+        padding: 4rem 0 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer-wave {
+        position: absolute;
+        top: -50px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-size: cover;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-logo-img {
+        width: 210px;
+        margin-bottom: 1rem;
+      }
+
+      .footer-logo p {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        opacity: 0.8;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: bold;
+        color: #01d4ff;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        background-color: #032541;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        background-color: #3a86ff;
+        transform: translateY(-3px);
+      }
+
+      .footer-links h3 {
+        background: linear-gradient(to right, #90cea1, #01b4e4, #3d428b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+      .footer-komentar h3 {
+        background: linear-gradient(to right, #90cea1, #01b4e4, #3d428b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 13%;
+      }
+
+      .footer-links h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(90deg, #3a86ff 0%, #00b4d8 100%);
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: #3a86ff;
+        transform: translateX(5px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 3rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-bottom p {
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+
+      /* animasi geraknya */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-50px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating-icon {
+        position: absolute;
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-icon:nth-child(1) {
+        top: 10%;
+        left: 5%;
+        font-size: 2rem;
+        animation-delay: 0s;
+      }
+
+      .floating-icon:nth-child(2) {
+        top: 30%;
+        right: 8%;
+        font-size: 3rem;
+        animation-delay: 1s;
+      }
+
+      .floating-icon:nth-child(3) {
+        bottom: 20%;
+        left: 15%;
+        font-size: 1.5rem;
+        animation-delay: 2s;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .footer-container {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-logo {
+          align-items: center;
+          text-align: center;
+        }
+
+        .social-icons {
+          justify-content: center;
+        }
+
+        .footer-links {
+          text-align: center;
+        }
+
+        .footer-links h3::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      /* buat komentar */
+      /* CSS untuk textarea komentar */
+      #comment {
+        width: 100%;
+        min-height: 120px; /* Memberikan tinggi minimum */
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-family: inherit;
+        color: #032541;
+        font-size: 14px;
+        resize: vertical; /* Memungkinkan resize vertikal saja */
+        box-sizing: border-box; /* Memastikan padding tidak mempengaruhi lebar */
+        transition: border 0.3s ease;
+      }
+
+      #comment:focus {
+        border-color: #4285f4;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+      }
+
+      /* CSS untuk tombol Kirim */
+      #buttonKomentar {
+        display: block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #4285f4;
+        color: white;
+        border: none;
+        font-family: arial;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+
+      #buttonKomentar:hover {
+        background-color: #3367d6;
+      }
+      /* General Responsive Adjustments */
+      @media (max-width: 1200px) {
+        .judul-trending,
+        .judul-rating,
+        .judul-most-populer {
+          margin: 5% 20%;
+          font-size: 2.2em;
+        }
+
+        .card-item-trending,
+        .card-item-rating {
+          max-width: 20%;
+        }
+
+        .card-item-popular {
+          max-width: 35%;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .judul-trending,
+        .judul-rating,
+        .judul-most-populer {
+          margin: 5% 15%;
+          font-size: 2em;
+        }
+
+        .gambar-text {
+          top: 120px;
+          left: 50px;
+          font-size: 2rem;
+        }
+
+        .gambar-text-2 {
+          top: 300px;
+          left: 50px;
+          font-size: 2.2rem;
+        }
+
+        .card-item-trending,
+        .card-item-rating {
+          max-width: 25%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .judul-trending,
+        .judul-rating,
+        .judul-most-populer {
+          margin: 5% 10%;
+          font-size: 1.8em;
+          text-align: center;
+        }
+
+        .gambar-text, .gambar-text-2 {
+          display: none;
+        }
+
+        .card-item-trending,
+        .card-item-rating {
+          max-width: 35%;
+        }
+
+        .card-item-popular {
+          max-width: 45%;
+        }
+
+        .detail-trending-film,
+        .detail-rating-film,
+        .detail-popular-film {
+          font-size: 12px;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .header {
+          padding: 3% 5%;
+        }
+
+        .gambar-logo-header {
+          width: 120%;
+        }
+
+        .judul-trending,
+        .judul-rating,
+        .judul-most-populer {
+          margin: 8% 5%;
+          font-size: 1.5em;
+        }
+
+        .gambar-text {
+          top: 80px;
+          left: 20px;
+          font-size: 1.2rem;
+          line-height: 1.3;
+        }
+
+        .gambar-text-2 {
+          top: 200px;
+          left: 20px;
+          font-size: 1.4rem;
+        }
+
+        .card-item-trending,
+        .card-item-rating {
+          max-width: 45%;
+        }
+
+        .card-item-popular {
+          max-width: 60%;
+        }
+
+        .preview-film-trending-judul,
+        .preview-film-rating-judul,
+        .preview-film-popular-judul {
+          font-size: 1em;
+        }
+
+        .preview-film-trending-rilis,
+        .preview-film-trending-rating,
+        .preview-film-rating-rilis,
+        .preview-film-rating-rating,
+        .preview-film-popular-rilis {
+          font-size: 0.8em;
+        }
+
+        .konten-trending,
+        .konten-rating,
+        .konten-most-popular {
+          padding: 5% 3%;
+        }
+
+        .footer-container {
+          padding: 0 1rem;
+          gap: 1.5rem;
+        }
+
+        .footer-logo-img {
+          width: 180px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .gambar-text {
+          top: 60px;
+          left: 15px;
+          font-size: 1rem;
+        }
+
+        .gambar-text-2 {
+          top: 170px;
+          left: 15px;
+          font-size: 1.2rem;
+        }
+
+        .card-item-trending,
+        .card-item-rating {
+          max-width: 55%;
+        }
+
+        .card-item-popular {
+          max-width: 70%;
+        }
+
+        .detail-trending-film,
+        .detail-rating-film,
+        .detail-popular-film {
+          width: 90%;
+          font-size: 0.9em;
+        }
+      }
+
+      /* Adjust image containers for mobile */
+      @media (max-width: 768px) {
+        .konten-trending,
+        .konten-rating,
+        .konten-most-popular {
+          aspect-ratio: unset;
+          height: auto;
+          padding-bottom: 10px;
+        }
+
+        .konten-most-popular {
+          height: auto;
+        }
+      }
+
+      /* Make sure images don't overflow on small screens */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Improve burger menu visibility */
+      @media (max-width: 768px) {
+        .burger {
+          top: 25px;
+          right: 20px;
+        }
+
+        .navbar.active {
+          padding: 2rem 0;
+        }
+
+        .navbar-item-ul {
+          gap: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-kumpul">
+        <div class="header-logo">
+          <img src="logo_tmdb.svg" alt="" class="gambar-logo-header" />
+        </div>
+        <div class="burger" id="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav class="navbar">
+          <ul class="navbar-item-ul">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="popularActor.html">Popular Actors</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="aboutMe.html">About Me</a></li>
+            <li>
+              <select class="navbar-item-select">
+                <option value="/PROJEK_TMDB/halaman/home.html">Movies</option>
+                <option value="/PROJEK_TMDB/halaman/search.html">Search</option>
+                <option value="/PROJEK_TMDB/halaman/popular.html">
+                  Popular
+                </option>
+                <option value="/PROJEK_TMDB/halaman/trending.html">
+                  Trending
+                </option>
+                <option value="/PROJEK_TMDB/halaman/topRating.html">
+                  Top Rating
+                </option>
+                <option value="/PROJEK_TMDB/halaman/gendre.html">
+                  Gendres
+                </option>
+                <option value="/PROJEK_TMDB/halaman/upComing.html">
+                  UP Coming
+                </option>
+              </select>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container" style="margin-top: 100px">
+      <div class="container-gambar" style="margin-top: 100px">
+        <img
+          src="https://image.tmdb.org/t/p/original/zo8CIjJ2nfNOevqNajwMRO6Hwka.jpg"
+          alt=""
+          width="100%"
+          style="
+            height: auto;
+            aspect-ratio: 3/1;
+            object-fit: cover;
+            filter: brightness(1);
+            background-position: center;
+          "
+        />
+        <h2 class="gambar-text">
+          Cinema is visual melody<br />
+          a sonnet for the spirit<br />
+          and a journey for emotions <br />
+          <br />
+
+          <h1 class="gambar-text-2">Find your favorite film...</h1>
+        </h2>
+        <div class="hitam1"></div>
+        <div class="hitam"></div>
+        <p class="judul-trending">✨✨Trending Films✨✨</p>
+        <div class="hitam2"></div>
+        <div class="konten-trending">
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+        </div>
+        <p class="judul-rating">&nbsp;&nbsp;&nbsp;🎉Top Rating Films🎉</p>
+        <div class="konten-rating">
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-rating">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/srj9rYrjefyWqkLc6l2xjTGeBGO.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-rating">
+              <p class="preview-film-rating-judul">${e.title ?</p>
+              <p class="preview-film-rating-rilis">${e.releas</p>
+              <p class="preview-film-rating-rating">Rating :</p>
+              <button class="detail-rating-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="hitam3"></div>
+
+        <p class="judul-most-populer">♦️Most Popular Films♦️</p>
+        <div class="hitam5"></div>
+        <div class="konten-most-popular">
+
+
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+          <div class="card-item-popular">
+            <img
+              loading="lazy"
+              src="https://image.tmdb.org/t/p/original/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+              alt="Poster Film"
+            />
+            <div class="preview-film-popular">
+              <p class="preview-film-popular-judul">
+                ${e.original_title ? e.original_title : "judul tidak tersedia"}
+              </p>
+              <p class="preview-film-popular-rilis">
+                ${e.release_date ? e.release_date : "tahun tidak ada"}
+              </p>
+              <button class="detail-popular-film" data-id="${e.id}">
+                More Detail
+              </button>
+            </div>
+          </div>
+
+
+        </div>
+
+
+        <div class="hitam4"></div>
+
+        <footer>
+          <div class="footer-wave"></div>
+
+          <div class="floating-icon">🎬</div>
+          <div class="floating-icon">🎥</div>
+          <div class="floating-icon">🍿</div>
+
+          <div class="footer-container">
+            <div class="footer-logo">
+              <img
+                src="logo_tmdb.svg"
+                alt="TMDB Logo"
+                class="footer-logo-img"
+              />
+              <p>
+                Gerbang menuju dunia sinema terbaik - di mana setiap frame
+                bercerita dan setiap genre menemukan rumahnya.
+              </p>
+              <div class="social-icons">
+                <a href="#"><span>FB</span></a>
+                <a href="#"><span>TW</span></a>
+                <a href="#"><span>IG</span></a>
+                <a href="#"><span>YT</span></a>
+              </div>
+            </div>
+
+            <div class="footer-links">
+              <h3>Menu</h3>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                  <a href="popularActor.html">Popular Actors</a>
+                </li>
+                <li><a href="news.html">news</a></li>
+                <li><a href="upComing.html">Up Coming</a></li>
+                <li><a href="aboutMe.html">About Me</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-links">
+              <h3>Informasi</h3>
+              <ul>
+                <li><a href="search.html">Search Film</a></li>
+                <li><a href="popular.html">Popular Film</a></li>
+                <li><a href="trending.html">Trending Film</a></li>
+                <li><a href="gendre.html">Gendres FIlm</a></li>
+                <li><a href="topRating.html">Top Rating</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-komentar">
+              <h3>Your Comentar</h3>
+              <form action="">
+                <textarea id="comment" name="comment" required></textarea>
+                <button type="button" id="buttonKomentar">Kirim</button>
+                <!-- nanti buat alert kalo komentar dikirim -->
+              </form>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p>
+              &copy; 2025 The Movie TMDB. All Rights Reserved. | Developed with
+              ❤️Heart❤️ by Rafa Khadafi
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script></script>
+  </body>
+</html>
