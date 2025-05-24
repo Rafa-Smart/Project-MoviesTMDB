@@ -1,3 +1,19 @@
+
+// ini untuk agar ketika di klik akakn masuk ke halaman detail.js
+
+document.addEventListener("click", function (e){
+  if(e.target.className.includes("detail-film")){
+    const dataId = e.target.dataset.id;
+    localStorage.setItem("DataId", dataId);
+    if(e.target.value != "home.html"){
+      window.location.href = "../halaman/detail.html";
+    }
+  }
+})
+
+
+
+
 document.addEventListener("DOMContentLoaded", async function () {
   const datadariapi = await ambilDataPopular();
   console.log(datadariapi);
@@ -81,7 +97,7 @@ function templateStringData(e) {
               }" alt="Poster popular">
               <div class="preview-popular">
                 <p class="preview-judul">
-                  ${e.name ? e.name : "tidak bernama"}
+                  ${e.title ? e.title : "tidak bernama"}
                 </p>
                 <p class="preview-rilis">
                   ${e.release_date}
