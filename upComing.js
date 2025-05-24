@@ -6,7 +6,7 @@ document.addEventListener("click", function (e){
     const dataId = e.target.dataset.id;
     localStorage.setItem("DataId", dataId);
     if(e.target.value != "/index.html"){
-      window.location.href = "../halaman/detail.html";
+      window.location.href = "detail.html";
     }
   }
 })

@@ -41,7 +41,7 @@ document.addEventListener("click", async function (e) {
     const dataId = e.target.dataset.id;
     console.log(dataId);
     localStorage.setItem("DataId", dataId);
-    window.location.href = "../halaman/detail.html";
+    window.location.href = "detail.html";
   }
 });
 

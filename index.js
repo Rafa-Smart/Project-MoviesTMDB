@@ -27,7 +27,7 @@ document.addEventListener("click", async function (e) {
     console.log(dataId);
     localStorage.setItem("DataId", dataId);
     if(e.target.value != "index.html")
-    window.location.href = "../halaman/detail.html";
+    window.location.href = "detail.html";
   }
 });
 
