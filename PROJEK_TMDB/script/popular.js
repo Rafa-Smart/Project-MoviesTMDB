@@ -5,7 +5,7 @@ document.addEventListener("click", function (e){
   if(e.target.className.includes("detail-film")){
     const dataId = e.target.dataset.id;
     localStorage.setItem("DataId", dataId);
-    if(e.target.value != "index.html"){
+    if(e.target.value != "/index.html"){
       window.location.href = "../halaman/detail.html";
     }
   }
