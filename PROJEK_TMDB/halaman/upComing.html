@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Halaman Utama</title>
     <link rel="stylesheet" href="../style/header.css" />
+    <link rel="stylesheet" href="../style/upComing.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,11 +17,7 @@
     <header class="header">
       <div class="header-kumpul">
         <div class="header-logo">
-          <img
-            src="../img/logo_tmdb.svg"
-            alt=""
-            class="gambar-logo-header"
-          />
+          <img src="../img/logo_tmdb.svg" alt="" class="gambar-logo-header" />
         </div>
 
         <nav class="navbar">
@@ -31,7 +28,7 @@
             <li><a href="aboutMe.html">About Me</a></li>
             <li>
               <select class="navbar-item-select">
-                <option value="movie">Up Coming</option>
+                <option value="movie">UP Coming</option>
                 <option value="search.html">Search</option>
                 <option value="popular.html">Popular</option>
                 <option value="trending.html">Trending</option>
@@ -42,13 +39,26 @@
             </li>
           </ul>
         </nav>
+        <div class="burger" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
       </div>
     </header>
-    <div style="margin-top: 100px"></div>
+    <h1 class="judulnya">
+      Up Coming Films
+    </h1>
+
+    <div class="container-upComing">
+      
+    </div>
+
+
+
     <footer>
       <div class="footer-wave"></div>
 
-      <!-- Floating icons for decoration -->
       <div class="floating-icon">🎬</div>
       <div class="floating-icon">🎥</div>
       <div class="floating-icon">🍿</div>
@@ -77,7 +87,7 @@
           <ul>
             <li><a href="../halaman/home.html">Home</a></li>
             <li><a href="../halaman/popularActor.html">Popular Actors</a></li>
-            <li><a href="../halaman/news.html">news</a></li>
+            <li><a href="../halaman/search.html">Search</a></li>
             <li><a href="../halaman/upComing.html">Up Coming</a></li>
             <li><a href="../halaman/aboutMe.html">About Me</a></li>
           </ul>
@@ -113,5 +123,6 @@
     </footer>
 
     <script src="../script/header.js"></script>
+    <script src="../script/upComing.js"></script>
   </body>
 </html>

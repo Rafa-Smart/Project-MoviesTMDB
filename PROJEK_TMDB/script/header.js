@@ -11,3 +11,16 @@ document.querySelector(".navbar-item-select").addEventListener('change', functio
     alert("terkirim. terima kasih sudah berkomentar");
     window.location.reload();
   })
+
+
+
+  // untuk si burgernya
+  document.addEventListener("DOMContentLoaded", function () {
+  const burger = document.getElementById("burger");
+  const navbar = document.querySelector(".navbar");
+
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+    navbar.classList.toggle("active");
+  });
+});
