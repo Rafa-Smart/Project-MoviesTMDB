@@ -3,7 +3,7 @@ document.addEventListener("click", async function (e) {
     const dataId = e.target.id;
     console.log(dataId);
     localStorage.setItem("DataIdDetail", dataId);
-    if(e.target.value != "home.html")
+    if(e.target.value != "index.html")
     window.location.href = "../halaman/detail_2.html";
     console.log(dataId)
   }

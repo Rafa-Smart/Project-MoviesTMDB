@@ -9,7 +9,7 @@ document.addEventListener("click", function (e) {
     const data_id = e.target.dataset.id;
     console.log(data_id);
     localStorage.setItem("DataId2", data_id);
-    if (e.target.value != "home.html") {
+    if (e.target.value != "index.html") {
       window.location.href = "../halaman/detail_aktor.html";
     }
   }
